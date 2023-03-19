@@ -16,7 +16,8 @@ Codebase correction that follows accessibility standards so that the site is opt
 
 
 ## Installation
-placeholder
+Heroku App: https://j-a-t-e-just-another-text-edit.herokuapp.com/
+
 
 
 ## Usage
@@ -24,12 +25,15 @@ Screenshot of Heroku
 ![alt text](placeholder)
 
 
-Video
-[Video Demo](placeholder)
-
 
 ## Credits
-placeholder
+Starter Code:
+Xandromus - Mar 18, 2022
+https://github.com/coding-boot-camp/cautious-meme
+
+Contribution:
+andy-sd-858 - Nov 2, 2022
+https://github.com/andy-sd-858/Module-19
 ## License
 
 Please refer to the LICENSE in the repo.
