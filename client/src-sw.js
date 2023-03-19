@@ -26,5 +26,37 @@ warmStrategyCache({
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
+const assetCache = new CacheFirst({
+  cacheName: 'asset-cache',
+  plugins: [
+    new CacheableResponsePlugin({
+      statuses: [0, 200],
+    }),
+    new ExpirationPlugin({
+      maxAgeSeconds: 7 * 24 * 60 * 60,
+    }),
+  ],
+});
+
+self.addEventListener('fetch', event => {
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      offlineFallback({
+        pageFallback: '/index.html',
+        cacheName: pageCache.cacheName,
+        fallbackResponse: pageCache.match(event.request),
+        plugins: [
+          new ExpirationPlugin({
+            maxAgeSeconds: 30 * 24 * 60 * 60,
+          }),
+        ],
+      })(event)
+    );
+  }
+});
+
 // TODO: Implement asset caching
-registerRoute();
+registerRoute(
+  ({ request }) => request.destination === 'style' || request.destination === 'script' || request.destination === 'image',
+  assetCache
+);
