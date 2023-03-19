@@ -11,7 +11,8 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      editor: './src/js/editor.js'
     },
     output: {
       filename: '[name].bundle.js',
@@ -20,6 +21,7 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
+        title: 'JATE'
       }),
 
     new InjectManifest({
@@ -29,6 +31,7 @@ module.exports = () => {
     
     new WebpackPwaManifest({
       name: 'JATE',
+      inject: true,
       short_name: 'JATE',
       description: 'Just Another Text Editor',
       background_color: '#7eb4e2',
