@@ -22,7 +22,7 @@ Heroku App: https://j-a-t-e-just-another-text-edit.herokuapp.com/
 
 ## Usage
 Screenshot of Heroku
-![alt text](placeholder)
+![alt text](./assets/Capture.JPG)
 
 
 
